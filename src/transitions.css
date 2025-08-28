@@ -1,0 +1,17 @@
+/* transitions.css */
+
+/* Slide de la dreapta spre stânga */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-page {
+  animation: slideInRight 350ms ease;
+}
