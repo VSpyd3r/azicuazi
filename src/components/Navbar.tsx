@@ -4,11 +4,11 @@ import { IoHomeOutline, IoBicycleOutline, IoSettingsOutline, IoTimeOutline } fro
 
 export default function Navbar() {
   return (
-    <nav className="fixed bottom-0 w-full bg-white border-t flex justify-around py-2">
+    <nav className="fixed bottom-0 w-full bg-blend-darken mb-10 border-t flex justify-around py-2 z-10">
       <NavLink 
         to="/home" 
         className={({ isActive }) => 
-          `flex flex-col items-center ${isActive ? "text-blue-500" : "text-gray-600"}`
+          `flex flex-col items-center ${isActive ? "text-purple-500" : "text-gray-600"}`
         }
       >
         <IoHomeOutline size={26} />
@@ -17,7 +17,7 @@ export default function Navbar() {
       <NavLink 
         to="/delivery" 
         className={({ isActive }) => 
-          `flex flex-col items-center ${isActive ? "text-blue-500" : "text-gray-600"}`
+          `flex flex-col items-center ${isActive ? "text-purple-500" : "text-gray-600"}`
         }
       >
         <IoBicycleOutline size={26} />
@@ -26,7 +26,7 @@ export default function Navbar() {
       <NavLink 
         to="/settings" 
         className={({ isActive }) => 
-          `flex flex-col items-center ${isActive ? "text-blue-500" : "text-gray-600"}`
+          `flex flex-col items-center ${isActive ? "text-purple-500" : "text-gray-600"}`
         }
       >
         <IoSettingsOutline size={26} />
@@ -35,7 +35,7 @@ export default function Navbar() {
       <NavLink 
         to="/history" 
         className={({ isActive }) => 
-          `flex flex-col items-center ${isActive ? "text-blue-500" : "text-gray-600"}`
+          `flex flex-col items-center ${isActive ? "text-purple-500" : "text-gray-600"}`
         }
       >
         <IoTimeOutline size={26} />
