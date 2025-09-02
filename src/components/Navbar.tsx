@@ -1,45 +1,30 @@
 // Navbar.tsx
 import { NavLink } from "react-router-dom"
-import { IoHomeOutline, IoBicycleOutline, IoSettingsOutline, IoTimeOutline } from "react-icons/io5"
+import "./Navbar.css"
 
-export default function Navbar() {
+export default function BottomNav() {
   return (
-    <nav className="fixed bottom-0 w-full bg-blend-darken mb-10 border-t flex justify-around py-2 z-10">
-      <NavLink 
+    <nav className="navbar fixed-bottom bg-transparent text-white">
+      <div className="container-fluid d-flex justify-content-around py-2">
+        <NavLink 
         to="/home" 
-        className={({ isActive }) => 
-          `flex flex-col items-center ${isActive ? "text-purple-500" : "text-gray-600"}`
-        }
-      >
-        <IoHomeOutline size={26} />
-      </NavLink>
-
-      <NavLink 
-        to="/delivery" 
-        className={({ isActive }) => 
-          `flex flex-col items-center ${isActive ? "text-purple-500" : "text-gray-600"}`
-        }
-      >
-        <IoBicycleOutline size={26} />
-      </NavLink>
-
-      <NavLink 
-        to="/settings" 
-        className={({ isActive }) => 
-          `flex flex-col items-center ${isActive ? "text-purple-500" : "text-gray-600"}`
-        }
-      >
-        <IoSettingsOutline size={26} />
-      </NavLink>
-
-      <NavLink 
+        className={({ isActive }) => `text-white text-center Link ${isActive ? "active" : ""}`}>
+          <i className="bi bi-house-door-fill fs-4 icon-light"></i><br /><small></small>
+        </NavLink>
+        <NavLink 
         to="/history" 
-        className={({ isActive }) => 
-          `flex flex-col items-center ${isActive ? "text-purple-500" : "text-gray-600"}`
-        }
-      >
-        <IoTimeOutline size={26} />
-      </NavLink>
+        className={({ isActive }) => `text-white text-center Link ${isActive ? "active" : ""}`}>
+          <i className="bi bi-clock-history fs-4 icon-light"></i><br /><small></small>
+        </NavLink>
+        <NavLink 
+        to="/user" 
+        className={({ isActive }) => `text-white text-center Link ${isActive ? "active" : ""}`}>
+          <i className="bi bi-person-circle fs-4 icon-light"></i><br /><small></small>
+        </NavLink>
+        <button id="darkToggle" className="btn btn-sm btn-outline-light">
+          <i className="bi bi-moon-stars-fill icon-light"></i>
+        </button>
+      </div>
     </nav>
-  )
+  );
 }

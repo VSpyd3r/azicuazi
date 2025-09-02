@@ -1,13 +1,13 @@
-import DarkVeil from "../../components/DarkVeil"
+
 
 export default function Home() {
   return (
 
    <section className="relative min-h-screen overflow-hidden p-6">
   {/* Background layer */}
-  <div className="absolute inset-0 z-0">
+  {/* <div className="absolute inset-0 z-0">
     <DarkVeil className="w-full h-full object-cover" />
-  </div>
+  </div> */}
 
   {/* Foreground content */}
   <div className="relative z-10 text-center ">
