@@ -1,6 +1,6 @@
 import { useState } from "react";
 import SplashScreen from "./components/SplashScreen";
-import Onboarding from "./Pages/Onboarding/Onboarding";
+import Onboarding from "./Pages/onboarding/Onboarding";
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);

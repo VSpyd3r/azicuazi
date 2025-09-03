@@ -1,57 +1,51 @@
 import { useState } from "react";
 import SplashScreen from "../../components/SplashScreen";
 import { Link } from "react-router-dom";
-import TypewriterText from "../../components/AnimatedText";
-import SplitText from "../../components/WelcomeAnim"
-
+import SplitText from "../../components/WelcomeAnim";
+import logoImage from "../../assets/images/azilogo192.png";
 
 export default function Onboarding() {
   const [showSplash, setShowSplash] = useState(true);
+
   const handleAnimationComplete = () => {
-    
-  }
+    // Optional: handle animation completion logic
+  };
 
   return showSplash ? (
-    <SplashScreen  onFinish={() => setShowSplash(false)} />
+    <SplashScreen onFinish={() => setShowSplash(false)} />
   ) : (
-    <section className="relative flex flex-col items-center justify-center h-screen text-brand-white">
-      {/* Fundal */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/onboarding_bg.jpg')" }}
-      ></div>
+    <section className="fixed inset-0 flex flex-col items-center justify-center bg-white text-brand-white space-y-16">
+      {/* Logo */}
+      <img
+        src={logoImage}
+        alt="Logo"
+        className="fixed z-50 top-40 w-24 h-24 rounded-3xl animate-pulse"
+      />
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/60"></div>
-
-      {/* Conținut */}
-      <div className="relative z-10 text-center">
+      {/* Animated Text */}
+      <div className="text-center mb-12 mt-10">
         <SplitText
-          text="Bine ai venit!"
-          className="text-4xl font-semibold text-center text-white mb-15"
+          text="Livrare rapidă, chiar azi!"
+          className="text-3xl font-semibold text-dark"
           delay={100}
           duration={0.6}
           ease="power3.out"
           splitType="chars"
-          from={{opacity:0, y: 40}}
-          to={{opacity:1, y: 0}}
+          from={{ opacity: 0, y: 40 }}
+          to={{ opacity: 1, y: 0 }}
           threshold={0.1}
-          rootMargin="-100px"
+          rootMargin="-10px"
           textAlign="center"
           onLetterAnimationComplete={handleAnimationComplete}
-        
         />
-        <TypewriterText text="Obține o livrare cu doar câteva clicuri" />
-
-        <div className="flex gap-4 justify-center mt-30">
-          <Link
-            to="/signup"
-            className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:opacity-90"
-          >
-            Creează cont
-          </Link>
-        </div>
       </div>
+
+      {/* CTA Button */}
+      <Link
+        to="/signup"
+        className="bg-blue-500 text-white px-6 py-4 rounded-3xl hover:opacity-90">
+        Creează cont
+      </Link>
     </section>
   );
 }

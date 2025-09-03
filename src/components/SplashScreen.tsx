@@ -25,24 +25,22 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish }) => {
   }, [onFinish]);
 
   return (
-    <div className="w-screen h-screen relative overflow-hidden">
-      {/* Imaginea de fundal */}
-      <div
-        className="absolute inset-0 bg-cover bg-center z-1"
-        style={{ backgroundImage: "url('/onboarding_bg.jpg')" }}
-      ></div>
-      
+    <div className="flex items-center justify-center w-screen h-screen bg-white relative overflow-hidden">
       {/* Conținut centrat */}
-      <div className="absolute inset-0 z-10 flex flex-col items-center pt-18">
+      <div className="flex flex-col items-center justify-center space-y-16">
         <img
           src={logoImage}
           alt="Logo"
-          className="w-24 h-24 mb-46 animate-pulse"
+          className="fixed z-50 top-40 w-24 h-24 rounded-3xl animate-pulse"
         />
-        <TypewriterText text="Se pregateste livrarea ...."/>
+
+        <TypewriterText
+          text="Se pregătește livrarea..."
+          className="text-black text-2xl text-center"
+        />
 
         {/* Bara de progres */}
-        <div className="w-3/4 h-4 bg-white rounded-full overflow-hidden">
+        <div className="w-64 h-2 bg-gray-300 rounded-full overflow-hidden">
           <div
             className="h-full bg-blue-500 transition-all duration-75"
             style={{ width: `${progress}%` }}
