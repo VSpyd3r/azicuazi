@@ -1,62 +1,45 @@
+import {
+  IoHomeOutline,
+  IoCalendarClearOutline,
+  IoPersonOutline,
+} from "react-icons/io5";
+import { TbTruckDelivery } from "react-icons/tb";
 import { NavLink } from "react-router-dom";
 
-interface NavItemProps {
-  to: string;
-  icon: string;
-  label: string;
-}
+const BottomNavbar = () => {
+  const navItems = [
+    { to: "/home", icon: <IoHomeOutline size={28} />, label: "Home" },
+    { to: "/delivery", icon: <TbTruckDelivery size={28} />, label: "Delivery" },
+    { to: "/history", icon: <IoCalendarClearOutline size={28} />, label: "History" },
+    { to: "/settings", icon: <IoPersonOutline size={28} />, label: "Profile" },
+  ];
 
-const NavItem = ({ to, icon, label }: NavItemProps) => (
-  <NavLink
-    to={to}
-    className={({ isActive }) =>
-      `flex flex-col items-center text-xs transition-all duration-300 ${
-        isActive ? "text-white" : "text-gray-400"
-      }`
-    }
-  >
-    {({ isActive }) => (
-      <>
-        <div
-          className={`p-3 rounded-full transition-all duration-300 ${
-            isActive ? "bg-[#A1D1B1] shadow-lg text-[#1C2529]" : ""
-          }`}
-        >
-          <i className={`bi ${icon} text-lg`}></i>
-        </div>
-        <span className="mt-1">{label}</span>
-      </>
-    )}
-  </NavLink>
-);
-
-export default function BottomNav() {
   return (
-    <>
-      {/* Navigație fixă */}
-      <nav className="fixed bottom-0 left-0 right-0 z-50 bg-[#1C2529] backdrop-blur-md border-t border-white/10 text-white">
-        <div className="flex justify-around items-center py-3">
-          <NavItem to="/home" icon="bi-house-door-fill" label="Home" />
-          <NavItem to="/history" icon="bi-clock-history" label="History" />
-          <NavItem to="/user" icon="bi-person-circle" label="Profile" />
-
-          {/* Dark Mode Toggle */}
-          <button
-            id="darkToggle"
-            className="p-3 rounded-full hover:bg-white/10 transition"
-          >
-            <i className="bi bi-moon-stars-fill text-lg"></i>
-          </button>
-        </div>
-      </nav>
-
-      {/* Buton flotant dreapta jos */}
-      <button
-        className="fixed bottom-20 right-5 z-50 bg-[#A1D1B1] text-[#1C2529] p-4 rounded-full shadow-xl hover:scale-105 transition-transform"
-        onClick={() => alert("Shop action triggered!")}
-      >
-        <i className="bi bi-bag-fill text-xl"></i>
-      </button>
-    </>
+    <nav className="fixed bottom-6 left-0 right-0 z-50 rounded-t-3xl px-4 rounded-3xl backdrop-blur-md bg-white/60 border border-white/20 shadow-lg">
+      <ul className="flex justify-around items-center py-3">
+        {navItems.map(({ to, icon, label }) => (
+          <li key={label}>
+            <NavLink to={to}>
+              {({ isActive }: { isActive: boolean }) => (
+                <div
+                  className={`flex flex-col items-center text-xs transition-colors duration-300 ${
+                    isActive ? "text-[#8556bb] animate-pulse" : "text-slate-500 hover:text-[#5bc1e0]"
+                  }`}
+                >
+                  {icon}
+                  {isActive && (
+                    <span className="mt-1 font-semibold decoration-[#8556bb]">
+                      {label}
+                    </span>
+                  )}
+                </div>
+              )}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
-}
+};
+
+export default BottomNavbar;
