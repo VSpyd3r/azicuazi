@@ -15,7 +15,7 @@ const BottomNavbar = () => {
   ];
 
   return (
-    <nav className="fixed bottom-6 left-0 right-0 z-50 rounded-t-3xl px-4 rounded-3xl backdrop-blur-md bg-white/60 border border-white/20 shadow-lg">
+    <nav className="fixed bottom-10 left-0 right-0 z-50 py-0 rounded-t-3xl px-4 rounded-3xl backdrop-blur-xl bg-white/10 backdrop-opacity-30 border border-amber-200/20 shadow-lg shadow-amber-300/30 mx-4">
       <ul className="flex justify-around items-center py-3">
         {navItems.map(({ to, icon, label }) => (
           <li key={label}>
@@ -23,12 +23,12 @@ const BottomNavbar = () => {
               {({ isActive }: { isActive: boolean }) => (
                 <div
                   className={`flex flex-col items-center text-xs transition-colors duration-300 ${
-                    isActive ? "text-[#8556bb] animate-pulse" : "text-slate-500 hover:text-[#5bc1e0]"
+                    isActive ? "text-[#d8aa61] animate-bounce drop-shadow-[0_0_8px_rgba(94,234,212,0.6)] transition duration-300 hover:drop-shadow-[0_0_12px_rgba(94,234,212,0.9)]" : "text-gray-400 hover:text-[#c3f53a]"
                   }`}
                 >
                   {icon}
                   {isActive && (
-                    <span className="mt-1 font-semibold decoration-[#8556bb]">
+                    <span className="mt-1 font-semibold decoration-[#bc6c25]">
                       {label}
                     </span>
                   )}
